@@ -1,0 +1,22 @@
+{
+  "name": "adventofcode2015",
+  "version": "1.0.0",
+  "description": "Solutions for adventofcode.com",
+  "main": "index.js",
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "eslint": "^1.10.3",
+    "istanbul": "^0.4.1",
+    "mocha": "^2.3.4"
+  },
+  "scripts": {
+    "test": "istanbul cover _mocha ./**/*.spec.js -x *.spec.js -- --reporter spec",
+    "pretest": "eslint ./**/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com/tiago/adventofcode2015.git"
+  },
+  "author": "Tiago Oliveira",
+  "license": "ISC"
+}

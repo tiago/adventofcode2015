@@ -1,0 +1,6 @@
+# Node
+coverage
+node_modules
+
+# OSX
+.DS_Store
