@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 'use strict';
 
-function find_final_floor(parenthesis) {
+function findFinalFloor(parenthesis) {
     var floor = 0;
     for (var i = 0; i < parenthesis.length; i++) {
         floor += parenthesis[i] === '(' ? 1 : -1;
@@ -9,7 +9,7 @@ function find_final_floor(parenthesis) {
     return floor;
 }
 
-function find_basement_position(parenthesis) {
+function findBasementPosition(parenthesis) {
     var floor = 0;
     for (var i = 0; i < parenthesis.length; i++) {
         floor += parenthesis[i] === '(' ? 1 : -1;
@@ -21,8 +21,8 @@ function find_basement_position(parenthesis) {
 }
 
 module.exports = {
-    find_final_floor: find_final_floor,
-    find_basement_position: find_basement_position
+    findFinalFloor: findFinalFloor,
+    findBasementPosition: findBasementPosition
 };
 
 /* istanbul ignore next */
@@ -36,8 +36,8 @@ function main() {
             process.exit(1);
         }
 
-        console.log(find_final_floor(data));
-        console.log(find_basement_position(data));
+        console.log(findFinalFloor(data));
+        console.log(findBasementPosition(data));
     });
 }
 

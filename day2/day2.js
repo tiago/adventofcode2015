@@ -1,15 +1,15 @@
 #! /usr/bin/env node
 'use strict';
 
-function extract_box_dimensions(boxes) {
+function extractBoxDimensions(boxes) {
     return boxes.split('\n').map(function (box) {
         return box.split('x').map(Number);
     });
 }
 
-function calculate_wrapping_area(boxes) {
+function calculateWrappingArea(boxes) {
     var area = 0;
-    var dimensions = extract_box_dimensions(boxes);
+    var dimensions = extractBoxDimensions(boxes);
 
     dimensions.forEach(function (box) {
         var side1 = box[0] * box[1];
@@ -21,9 +21,9 @@ function calculate_wrapping_area(boxes) {
     return area;
 }
 
-function calculate_ribbon_length(boxes) {
+function calculateRibbonLength(boxes) {
     var length = 0;
-    var dimensions = extract_box_dimensions(boxes);
+    var dimensions = extractBoxDimensions(boxes);
 
     dimensions.forEach(function (box) {
         var side1 = box[0] + box[1];
@@ -38,8 +38,8 @@ function calculate_ribbon_length(boxes) {
 }
 
 module.exports = {
-    calculate_wrapping_area: calculate_wrapping_area,
-    calculate_ribbon_length: calculate_ribbon_length
+    calculateWrappingArea: calculateWrappingArea,
+    calculateRibbonLength: calculateRibbonLength
 };
 
 /* istanbul ignore next */
@@ -53,8 +53,8 @@ function main() {
             process.exit(1);
         }
 
-        console.log(calculate_wrapping_area(data));
-        console.log(calculate_ribbon_length(data));
+        console.log(calculateWrappingArea(data));
+        console.log(calculateRibbonLength(data));
     });
 }
 
