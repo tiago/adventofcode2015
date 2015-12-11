@@ -16,6 +16,11 @@
             2,
             "always"
         ],
+        "max-len": [
+            2,
+            120,
+            4
+        ],
         "no-console": 0
     },
     "env": {
