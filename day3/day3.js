@@ -1,26 +1,13 @@
 #! /usr/bin/env node
 'use strict';
 
-function countHouses(directions) {
-    var count = 0;
-    var history = Object.create(null);
+function Santa(map) {
     var position = {
         x: 0,
         y: 0
     };
-
-    function savePosition() {
-        var positionKey = position.x + 'x' + position.y;
-        if (!(positionKey in history)) {
-            history[positionKey] = null;
-            count++;
-        }
-    }
-
-    savePosition(); // initial position
-
-    for (var i = 0; i < directions.length; i++) {
-        switch (directions[i]) {
+    this.move = function move(direction) {
+        switch (direction) {
         case '<':
             position.x--;
             break;
@@ -34,10 +21,24 @@ function countHouses(directions) {
             position.y++;
             break;
         }
-        savePosition();
+        var positionKey = position.x + 'x' + position.y;
+        if (!(positionKey in map)) {
+            map[positionKey] = true;
+            this.houseCount++;
+        }
+    };
+    this.move(null); // initial position
+}
+
+function countHouses(directions) {
+    var map = Object.create(null);
+    var santa = new Santa(map);
+
+    for (var i = 0; i < directions.length; i++) {
+        santa.move(directions[i]);
     }
 
-    return count;
+    return Object.keys(map).length;
 }
 
 module.exports = {
