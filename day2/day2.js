@@ -6,7 +6,7 @@ function calculate_wrapping_area(boxes) {
     var dimensions = boxes.split('\n').map(function (box) {
         return box.split('x').map(Number);
     });
-    
+
     dimensions.forEach(function (box) {
         var side1 = box[0] * box[1];
         var side2 = box[1] * box[2];
@@ -17,8 +17,27 @@ function calculate_wrapping_area(boxes) {
     return area;
 }
 
+function calculate_ribbon_length(boxes) {
+    var length = 0;
+    var dimensions = boxes.split('\n').map(function (box) {
+        return box.split('x').map(Number);
+    });
+
+    dimensions.forEach(function (box) {
+        var side1 = box[0] + box[1];
+        var side2 = box[1] + box[2];
+        var side3 = box[2] + box[0];
+        var wrap = Math.min(side1, side2, side3) * 2;
+        var bow = box[0] * box[1] * box[2];
+        length += wrap + bow;
+    });
+    
+    return length;
+}
+
 module.exports = {
-    calculate_wrapping_area: calculate_wrapping_area
+    calculate_wrapping_area: calculate_wrapping_area,
+    calculate_ribbon_length: calculate_ribbon_length
 };
 
 /* istanbul ignore next */
@@ -33,6 +52,7 @@ function main() {
         }
 
         console.log(calculate_wrapping_area(data));
+        console.log(calculate_ribbon_length(data));
     });
 }
 

@@ -10,4 +10,11 @@ describe('day2', function () {
             expect(day2.calculate_wrapping_area('1x1x10')).to.equal(43);
         });
     });
+
+    describe('#calculate_ribbon_length()', function () {
+        it('should calculate total ribbon length', function () {
+            expect(day2.calculate_ribbon_length('2x3x4')).to.equal(34);
+            expect(day2.calculate_ribbon_length('1x1x10')).to.equal(14);
+        });
+    });
 });
