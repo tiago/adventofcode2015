@@ -41,8 +41,22 @@ function countHouses(directions) {
     return Object.keys(map).length;
 }
 
+function countHousesWithRobot(directions) {
+    var map = Object.create(null);
+    var human = new Santa(map);
+    var robot = new Santa(map);
+
+    for (var i = 0; i < directions.length; i++) {
+        var santa = i % 2 === 0 ? human : robot;
+        santa.move(directions[i]);
+    }
+
+    return Object.keys(map).length;
+}
+
 module.exports = {
-    countHouses: countHouses
+    countHouses: countHouses,
+    countHousesWithRobot: countHousesWithRobot
 };
 
 /* istanbul ignore next */
@@ -57,6 +71,7 @@ function main() {
         }
 
         console.log(countHouses(data));
+        console.log(countHousesWithRobot(data));
     });
 }
 
