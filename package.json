@@ -10,8 +10,12 @@
     "mocha": "^2.3.4"
   },
   "scripts": {
-    "test": "istanbul cover _mocha ./**/*.spec.js -x *.spec.js -- --reporter spec",
-    "pretest": "eslint ./**/*.js"
+    "test": "mocha ./**/*.spec.js",
+    "tdd": "npm test -- --watch",
+    "cover": "istanbul cover _mocha ./**/*.spec.js -x *.spec.js",
+    "lint": "eslint ./**/*.js",
+    "check": "npm run lint && npm run cover",
+    "clean": "rm -rf ./coverage"
   },
   "repository": {
     "type": "git",
