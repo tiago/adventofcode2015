@@ -1,11 +1,15 @@
 #! /usr/bin/env node
 'use strict';
 
-function calculate_wrapping_area(boxes) {
-    var area = 0;
-    var dimensions = boxes.split('\n').map(function (box) {
+function extract_box_dimensions(boxes) {
+    return boxes.split('\n').map(function (box) {
         return box.split('x').map(Number);
     });
+}
+
+function calculate_wrapping_area(boxes) {
+    var area = 0;
+    var dimensions = extract_box_dimensions(boxes);
 
     dimensions.forEach(function (box) {
         var side1 = box[0] * box[1];
@@ -19,9 +23,7 @@ function calculate_wrapping_area(boxes) {
 
 function calculate_ribbon_length(boxes) {
     var length = 0;
-    var dimensions = boxes.split('\n').map(function (box) {
-        return box.split('x').map(Number);
-    });
+    var dimensions = extract_box_dimensions(boxes);
 
     dimensions.forEach(function (box) {
         var side1 = box[0] + box[1];
