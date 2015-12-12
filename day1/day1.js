@@ -1,4 +1,3 @@
-#! /usr/bin/env node
 'use strict';
 
 function findFinalFloor(parenthesis) {
@@ -24,24 +23,3 @@ module.exports = {
     findFinalFloor: findFinalFloor,
     findBasementPosition: findBasementPosition
 };
-
-/* istanbul ignore next */
-function main() {
-    var path = require('path');
-    var fs = require('fs');
-
-    fs.readFile(path.resolve(__dirname, 'day1.input.txt'), 'utf-8', function (err, data) {
-        if (err) {
-            console.error(err);
-            process.exit(1);
-        }
-
-        console.log(findFinalFloor(data));
-        console.log(findBasementPosition(data));
-    });
-}
-
-/* istanbul ignore next */
-if (require.main === module) {
-    main();
-}

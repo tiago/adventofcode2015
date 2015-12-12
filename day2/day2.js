@@ -1,4 +1,3 @@
-#! /usr/bin/env node
 'use strict';
 
 function extractBoxDimensions(boxes) {
@@ -41,24 +40,3 @@ module.exports = {
     calculateWrappingArea: calculateWrappingArea,
     calculateRibbonLength: calculateRibbonLength
 };
-
-/* istanbul ignore next */
-function main() {
-    var path = require('path');
-    var fs = require('fs');
-
-    fs.readFile(path.resolve(__dirname, 'day2.input.txt'), 'utf-8', function (err, data) {
-        if (err) {
-            console.error(err);
-            process.exit(1);
-        }
-
-        console.log(calculateWrappingArea(data));
-        console.log(calculateRibbonLength(data));
-    });
-}
-
-/* istanbul ignore next */
-if (require.main === module) {
-    main();
-}
