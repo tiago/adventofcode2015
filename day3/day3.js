@@ -16,10 +16,7 @@ function Map() {
 }
 
 function Santa(map) {
-    var position = {
-        x: 0,
-        y: 0
-    };
+    var position = { x: 0, y: 0 };
 
     this.move = function move(direction) {
         switch (direction) {
@@ -39,7 +36,7 @@ function Santa(map) {
         map.visit(position);
     };
 
-    this.move(null); // initial position
+    map.visit(position); // initial position
 }
 
 function countHouses(directions) {
