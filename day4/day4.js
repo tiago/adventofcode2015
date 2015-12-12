@@ -2,8 +2,8 @@
 
 var md5 = require('md5');
 
-function mineAdventCoin(key) {
-    var regex = new RegExp(/^0{5}/);
+function mine(key, difficulty) {
+    var regex = new RegExp('^0{' + difficulty + '}');
     var answer = 0;
     var hash = null;
 
@@ -11,10 +11,18 @@ function mineAdventCoin(key) {
         answer++;
         hash = md5(key + answer);
     }
-
     return answer;
 }
 
+function mineAdventCoin(key) {
+    return mine(key, 5);
+}
+
+function mineHarderAdventCoin(key) {
+    return mine(key, 6);
+}
+
 module.exports = {
-    mineAdventCoin: mineAdventCoin
+    mineAdventCoin: mineAdventCoin,
+    mineHarderAdventCoin: mineHarderAdventCoin
 };
