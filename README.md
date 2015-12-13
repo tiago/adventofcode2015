@@ -6,3 +6,4 @@ Solutions for adventofcode.com
 - [Day 3: Perfectly Spherical Houses in a Vacuum](day3/day3.md)
 - [Day 4: The Ideal Stocking Stuffer](day4/day4.md)
 - [Day 5: Doesn't He Have Intern-Elves For This?](day5/day5.md)
+- [Day 6: Probably a Fire Hazard](day6/day6.md)
