@@ -17,4 +17,17 @@ describe('day5', function () {
             expect(day5.countNice(strings)).to.equal(2);
         });
     });
+
+    describe('#countNicer()', function () {
+        it('should count the occurrence of nice strings', function () {
+            var strings = [
+                'qjhvhtzxzqqjkmpb', // nice
+                'xxyxx',            // nice
+                'uurcxstgmygtbstg', // naughty
+                'ieodomkazucvgmuy'  // naughty
+            ].join('\n');
+
+            expect(day5.countNicer(strings)).to.equal(2);
+        });
+    });
 });

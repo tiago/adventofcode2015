@@ -22,18 +22,59 @@ function hasNoBadSequences(string) {
     });
 }
 
-function isNice(string) {
-    var niceRules = [hasThreeVowels, hasLetterTwice, hasNoBadSequences];
-    
-    return niceRules.every(function (rule) {
+function hasPairTwice(string) {
+    var pairs = Object.create(null);
+
+    for (var i = 0; i < string.length - 1; i++) {
+        var pair = string.substr(i, 2);
+        // new pair
+        if (!(pair in pairs)) {
+            pairs[pair] = i;
+            continue;
+        }
+        // known pair
+        var previousIndex = pairs[pair];
+        var overlapped = previousIndex === i - 1;
+        if (!overlapped) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+function hasLetterTwiceWithGap(string) {
+    for (var i = 0; i < string.length - 2; i++) {
+        if (string[i] === string[i+2]) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function checkRules(string, rules) {
+    return rules.every(function (rule) {
         return rule(string);
     });
+}
+
+function isNice(string) {
+    return checkRules(string, [hasThreeVowels, hasLetterTwice, hasNoBadSequences]);
+}
+
+function isNicer(string) {
+    return checkRules(string, [hasPairTwice, hasLetterTwiceWithGap]);
 }
 
 function countNice(data) {
     return data.split('\n').filter(isNice).length;
 }
 
+function countNicer(data) {
+    return data.split('\n').filter(isNicer).length;
+}
+
 module.exports = {
-    countNice: countNice
+    countNice: countNice,
+    countNicer: countNicer
 };
