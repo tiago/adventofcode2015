@@ -50,7 +50,7 @@ function LightGrid(size) {
 
 function generateGrid(data) {
     var grid = new LightGrid(1000);
-    var commandRegExp = /(toggle|turn\s+(?:on|off))\s+(\d+,\d+)\s+through\s+(\d+,\d+)/ig;
+    var commandRegExp = /(toggle|turn on|turn off) (\d+,\d+) through (\d+,\d+)/ig;
 
     function parsePosition(string) {
         var numbers = string.split(',').map(Number);
