@@ -14,9 +14,9 @@ function calculateWrappingArea(boxes) {
         var side1 = box[0] * box[1];
         var side2 = box[1] * box[2];
         var side3 = box[2] * box[0];
-        area += 2 * side1 + 2 * side2 + 2 * side3 + Math.min(side1, side2, side3);
+        area += 2 * (side1 + side2 + side3) + Math.min(side1, side2, side3);
     });
-    
+
     return area;
 }
 
