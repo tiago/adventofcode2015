@@ -7,3 +7,4 @@ Solutions for adventofcode.com
 - [Day 4: The Ideal Stocking Stuffer](day4/day4.md) [ [solution](day4/day4.js) ]
 - [Day 5: Doesn't He Have Intern-Elves For This?](day5/day5.md) [ [solution](day5/day5.js) ]
 - [Day 6: Probably a Fire Hazard](day6/day6.md) [ [solution](day6/day6.js) ]
+- [Day 7: Some Assembly Required](day7/day7.md)
