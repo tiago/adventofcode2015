@@ -96,6 +96,15 @@ function calculateSignal(data) {
     return circuit.evaluate('a');
 }
 
+function calculateNewSignal(data) {
+    var circuit = generateCircuit(data);
+    var value = circuit.evaluate('a');
+    circuit.setWire('b', value);
+    circuit.clearCache();
+    return circuit.evaluate('a');
+}
+
 module.exports = {
-    calculateSignal: calculateSignal
+    calculateSignal: calculateSignal,
+    calculateNewSignal: calculateNewSignal 
 };
