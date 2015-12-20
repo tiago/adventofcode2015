@@ -3,7 +3,7 @@
 var expect = require('chai').expect;
 var day6 = require('./day6');
 
-describe('day6', function () {
+xdescribe('day6', function () {
     this.timeout(5000);
     
     describe('#countLights()', function () {
