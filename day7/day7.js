@@ -10,6 +10,10 @@ function Circuit() {
     var circuit = Object.create(null);
     var cache = Object.create(null);
 
+    function clearCache() {
+        cache = Object.create(null);
+    }
+
     function parse(str) {
         var matches;
         var result = null;
@@ -70,11 +74,8 @@ function Circuit() {
         circuit[wire] = source;
     };
 
-    this.clearCache = function clearCache() {
-        cache = Object.create(null);
-    };
-
     this.evaluate = function evaluate(instruction) {
+        clearCache();
         return parse(instruction);
     };
 }
@@ -100,7 +101,6 @@ function calculateNewSignal(data) {
     var circuit = generateCircuit(data);
     var value = circuit.evaluate('a');
     circuit.setWire('b', value);
-    circuit.clearCache();
     return circuit.evaluate('a');
 }
 
